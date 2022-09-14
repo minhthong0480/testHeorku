@@ -46,7 +46,7 @@ app.use("/api/", forgotRoute);
 app.use("/api", resetRoute); 
 
   app.get("*", (req, res)=>{
-    res.sendFile(path.join(__dirname, "client/build",'index.html'));
+    res.sendFile(path.resolve(__dirname, "client/build",'index.html'));
   })
 
 app.listen(4000, () => console.log("Server is Up and Running"));
