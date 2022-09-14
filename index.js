@@ -50,4 +50,4 @@ app.use("/api", resetRoute);
     res.sendFile(path.resolve(__dirname, "client/build",'index.html'));
   })
 
-app.listen(4000, () => console.log("Server is Up and Running"));
+app.listen(process.env.PORT || 5000, () => console.log("Server is Up and Running"));
