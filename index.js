@@ -23,6 +23,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
 //middleware
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -44,7 +45,6 @@ app.use("/api/", forgotRoute);
 
 app.use("/api", resetRoute); 
 
-app.use(express.static(path.join(__dirname, "client/build")));
   app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname, "client/build",'index.html'));
   })
